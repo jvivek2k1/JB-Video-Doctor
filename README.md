@@ -1,6 +1,10 @@
-# JB Video Doctor 🎬🩺
+# JB Video Doctor 🎬🩺 — Free Video Repair Tool (WMV, MP4, AVI, MKV, MOV)
+
+> **Repair corrupted, broken, or unplayable video files and convert them to a working MP4 — for free, 100% offline on your own PC.**
 
 A simple, private desktop tool that **repairs corrupted or unplayable video files** and converts them into a widely-compatible **MP4 (H.264/AAC)** that works in Clipchamp, web browsers, and video editors. Everything runs **100% on your own PC** — your videos are never uploaded to the cloud.
+
+**Keywords:** video repair, repair corrupted video, fix broken video file, WMV repair, MP4 repair, fix unplayable video, video file corrector, video fixer, convert WMV to MP4, ffmpeg video repair, Clipchamp unsupported file fix, free video repair tool, offline video repair.
 
 ---
 
@@ -86,4 +90,7 @@ Editors like Clipchamp often reject `.wmv` files even when the video itself is i
 - **Page won't open** → make sure `python app.py` is still running, then reload http://127.0.0.1:5000.
 
 ## License
-MIT
+
+Released under the **MIT License with an attribution requirement** — see [LICENSE](LICENSE).
+
+You are free to use, modify, and share this software for any purpose (including commercial), **as long as clear credit is given to the original author, [jvivek2k1](https://github.com/jvivek2k1).**
