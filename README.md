@@ -1,30 +1,89 @@
-# JB Video Doctor
+# JB Video Doctor 🎬🩺
 
-A simple, private local web tool that repairs corrupted or unplayable video files and converts them into a widely-compatible **MP4 (H.264/AAC)** that works in Clipchamp, browsers, and video editors. Runs 100% on your PC — no cloud uploads.
+A simple, private desktop tool that **repairs corrupted or unplayable video files** and converts them into a widely-compatible **MP4 (H.264/AAC)** that works in Clipchamp, web browsers, and video editors. Everything runs **100% on your own PC** — your videos are never uploaded to the cloud.
 
-## Features
-- Upload a corrupted `.wmv` (or other) video file in the browser.
-- Repairs errors and discards damaged frames using **ffmpeg**.
-- Converts to a broadly compatible **MP4 (H.264 + AAC)**.
-- Download the fixed file with one click.
+---
 
-## Requirements
-- **Python 3.10+**
-- **Flask** — `pip install flask`
-- **ffmpeg** on your system (install via `winget install Gyan.FFmpeg`)
+## 1) What is this app?
 
-## Usage
-1. Double-click `Start.bat` (Windows), or run:
-   ```bash
-   python app.py
-   ```
-2. Open http://127.0.0.1:5000 in your browser.
-3. Choose your video file, click **Repair video**, then download the repaired MP4.
+Many video files (especially `.wmv`) can become corrupted, unplayable, or get rejected by editors like **Clipchamp** with errors such as *"Unable to import media / unsupported file format"* — even when most of the video is fine.
 
-Processed files are stored locally under `File/uploads` (source, auto-deleted) and `File/repaired` (output).
+**JB Video Doctor** fixes this by:
+- Repairing errors and discarding any damaged frames using **ffmpeg**.
+- Converting the file into a clean, broadly-compatible **MP4 (H.264 video + AAC audio)**.
+- Giving you a simple web page in your browser to upload the broken file and download the fixed one.
 
-## How it works
-Many editors (like Clipchamp) reject `.wmv` files even when the video itself is fine. This tool re-encodes the input to H.264/AAC MP4 — fixing genuine corruption (by discarding damaged packets) and format-compatibility issues at the same time.
+No accounts, no cloud, no data leaves your machine.
+
+---
+
+## 2) How to clone it to a machine
+
+### Prerequisites (install these first)
+| Tool | How to install (Windows) |
+|------|--------------------------|
+| **Git** | https://git-scm.com/download/win |
+| **Python 3.10+** | https://www.python.org/downloads/ (check "Add Python to PATH") |
+| **ffmpeg** | Run in a terminal: `winget install Gyan.FFmpeg` |
+| **Flask** | Run in a terminal: `pip install flask` |
+
+### Clone the repository
+Open **PowerShell** (or Command Prompt) and run:
+
+```bash
+git clone https://github.com/jvivek2k1/JB-Video-Doctor.git
+cd JB-Video-Doctor
+```
+
+---
+
+## 3) How to execute it and open the app
+
+You have two easy options:
+
+**Option A — One click (Windows):**
+- Double-click **`Start.bat`**. It launches the app and opens your browser automatically.
+
+**Option B — From a terminal:**
+```bash
+python app.py
+```
+
+Then open this address in your web browser:
+
+👉 **http://127.0.0.1:5000**
+
+You should see the **JB Video Doctor** page.
+
+> To stop the app later, press **Ctrl + C** in the terminal window (or just close the `Start.bat` window).
+
+---
+
+## 4) How to repair a video file — step by step
+
+1. **Start the app** (see section 3) and open **http://127.0.0.1:5000** in your browser.
+2. **Select your video:** click the upload box (or drag & drop your corrupted `.wmv` file onto it).
+3. **Click "Repair video".**
+4. **Wait** while it processes — a "Repairing…" message appears. Large files can take a few minutes.
+5. When it finishes, a green **"⬇ Download repaired MP4"** button appears. **Click it** to save the fixed file.
+6. **Use the file:** the downloaded `.mp4` now plays and imports correctly (e.g., upload it to Clipchamp — it will be accepted).
+
+**Where files are stored on your PC:**
+- Uploaded (broken) files → `File/uploads/` *(automatically deleted after repair)*
+- Repaired output files → `File/repaired/`
+
+---
+
+## How it works (technical note)
+
+Editors like Clipchamp often reject `.wmv` files even when the video itself is intact. JB Video Doctor re-encodes the input to **H.264/AAC MP4**, which simultaneously:
+- fixes genuine corruption by discarding damaged/incomplete packets, and
+- resolves format-compatibility problems.
+
+## Troubleshooting
+- **"ffmpeg not recognized"** → install it with `winget install Gyan.FFmpeg` and restart your terminal.
+- **"ModuleNotFoundError: flask"** → run `pip install flask`.
+- **Page won't open** → make sure `python app.py` is still running, then reload http://127.0.0.1:5000.
 
 ## License
 MIT
