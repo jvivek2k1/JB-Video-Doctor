@@ -1,0 +1,25 @@
+# Video files (processed locally, not tracked)
+File/uploads/*
+File/repaired/*
+*.wmv
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# Keep the folder structure
+!File/uploads/.gitkeep
+!File/repaired/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
