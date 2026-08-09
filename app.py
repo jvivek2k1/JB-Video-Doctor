@@ -40,8 +40,8 @@ OUTPUT_DIR = BASE_DIR / "repaired"
 for d in (UPLOAD_DIR, OUTPUT_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
-# Allow files a bit larger than 200 MB just in case.
-MAX_UPLOAD_BYTES = 1024 * 1024 * 1024  # 1 GB
+# Allow 2 GB videos with headroom for multipart upload overhead.
+MAX_UPLOAD_BYTES = 3 * 1024 * 1024 * 1024  # 3 GiB
 
 # Prefer the ffmpeg installed by winget; fall back to whatever is on PATH.
 _WINGET_FFMPEG = (
@@ -216,7 +216,7 @@ PAGE = """
     <form method="post" enctype="multipart/form-data" action="{{ url_for('repair') }}"
           onsubmit="document.getElementById('go').disabled=true; document.getElementById('spin').style.display='block';">
       <label class="drop" for="file">
-        <div>📁 Click to choose a .wmv file (or drop it here)</div>
+        <div>📁 Click to choose a .wmv file up to 2 GB (or drop it here)</div>
         <div class="fname" id="fname"></div>
         <input type="file" name="file" id="file" accept=".wmv" required>
       </label>
